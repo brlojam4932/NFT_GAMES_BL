@@ -1,0 +1,22 @@
+{
+  "name": "nft_games_bl",
+  "version": "1.0.0",
+  "description": "Moralis tutorial with Pillip",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brlojam4932/NFT_GAMES_BL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brlojam4932/NFT_GAMES_BL/issues"
+  },
+  "homepage": "https://github.com/brlojam4932/NFT_GAMES_BL#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.2.0"
+  }
+}
