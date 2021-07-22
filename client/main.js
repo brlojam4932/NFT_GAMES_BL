@@ -1,7 +1,7 @@
 
 Moralis.initialize("IgjTev92MjQUSMuHXIhc7A5KiFOGrtJ2RBgNTrz0"); // Application id from moralis.io
 Moralis.serverURL = "https://8a5ybyqvaz6q.usemoralis.com:2053/server"; //Server url from moralis.io
-const CONTRACT_ADDRESS = '0xdd118791ECD663883B912717c0661A86b568a334';
+const CONTRACT_ADDRESS = '0x85393f5a33Cc9b7dD34f69A2cD578073f855485E';
 
 async function init() {
     try {
@@ -35,11 +35,17 @@ function renderPet(id, data) {
     $("#pet_damage").html(data.damage);
     $("#pet_magic").html(data.magic);
     $("#pet_endurance").html(data.endurance);
+    $("#feed_button").attr("data-pet-id", id);
 
     let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000);
+    let now = new Date();
+    if(now > deathTime) {
+        deathTime = "<b>DEAD</b>";
+    }
 
     $("#pet_starvation_time").html(deathTime);
 }
+
 
 function getAbi(){
     return new Promise((res) => {
@@ -49,5 +55,21 @@ function getAbi(){
     })
    
 }
+
+async function feed(petId){
+    let abi = await getAbi();
+    let contract = new web3.eth.Contract(abi, CONTRACT_ADDRESS);
+    contract.methods.feed(petId).send({from: ethereum.selectedAddress}).on("receipt", (() => {
+        console.log("done");
+        renderGame();
+    }))
+
+}
+
+
+$("#feed_button").click(() => {
+    let petId = $("#feed_button").attr("data-pet-id");
+    feed(petId);
+});
 
 init();
