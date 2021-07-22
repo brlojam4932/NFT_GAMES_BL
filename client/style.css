@@ -1,0 +1,26 @@
+#pet_img{
+  width: 300px;
+}
+#game{
+  display: none;
+}
+body {
+  background-color: rgb(21, 23, 24);
+}
+
+.col-md-4{
+  color: rgb(160, 148, 148);
+}
+
+img {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  }
+  
+.jumbotron {
+  background-color: #4a535d;
+}
+
+.display-4 {
+  color: rgb(140, 131, 131);
+}
