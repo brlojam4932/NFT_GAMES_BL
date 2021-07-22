@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 // https://youtu.be/_VVqa7zWSxA
@@ -26,7 +25,12 @@ contract Token is ERC721, Ownable {
 
   }
 
-  function mint(uint8 damage, uint8 magic, uint8 endurance) public onlyOwner {
+  function getTokenDetails(uint256 tokenId) public view returns(Pet memory) {
+    return _tokenDetails[tokenId];
+
+  }
+
+  function mint(uint8 damage, uint8 magic, uint256 endurance) public onlyOwner {
     _tokenDetails[nextId] = Pet(damage, magic, block.timestamp, endurance);
     _safeMint(msg.sender, nextId);
     nextId++;
@@ -34,13 +38,13 @@ contract Token is ERC721, Ownable {
 
   function feed(uint256 tokeId) public {
     Pet storage pet = _tokenDetails[nextId];
-    require(pet.endurance + pet.lastMeal > block.timestamp);
+    require(pet.lastMeal + pet.endurance > block.timestamp);
     pet.lastMeal = block.timestamp;
   }
 
   function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override {
       Pet storage pet = _tokenDetails[nextId];
-      require(pet.endurance + pet.lastMeal > block.timestamp); // pet is still alive
+      require(pet.lastMeal + pet.endurance > block.timestamp); // pet is still alive
     }
 
 
