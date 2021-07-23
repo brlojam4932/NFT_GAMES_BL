@@ -47,5 +47,4 @@ contract Token is ERC721, Ownable {
       require(pet.lastMeal + pet.endurance > block.timestamp); // pet is still alive
     }
 
-
 }
