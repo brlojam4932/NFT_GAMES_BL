@@ -18,13 +18,13 @@ contract Token is ERC721, Ownable {
   }
 
   uint256 nextId = 0;
+  uint256 startTime;
 
 
   mapping(uint256 => Pet) private _tokenDetails;
 
 
   constructor(string memory name, string memory symbol) ERC721(name, symbol) {
-
   }
 
 

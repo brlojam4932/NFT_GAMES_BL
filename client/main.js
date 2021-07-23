@@ -1,7 +1,7 @@
 
 Moralis.initialize("IgjTev92MjQUSMuHXIhc7A5KiFOGrtJ2RBgNTrz0"); // Application id from moralis.io
 Moralis.serverURL = "https://8a5ybyqvaz6q.usemoralis.com:2053/server"; //Server url from moralis.io
-const CONTRACT_ADDRESS = "0x14949ca520982a5c17201DEA423849A6b61859e0";
+const CONTRACT_ADDRESS = "0x0DaBdBec8091A9F16377856FcB971E0612701592";
 
 async function init() {
     try {
@@ -37,13 +37,16 @@ function renderPet(id, data) {
     $("#pet_endurance").html(data.endurance);
     $("#feed_button").attr("data-pet-id", id);
 
-    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000);
+    let deathTime = new Date(Date.now(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000)); 
+
+    //let deathTime = Date.now(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000);
     let now = new Date();
     if(now > deathTime) {
         deathTime = "<b>DEAD</b>";
     }
 
     $("#pet_starvation_time").html(deathTime);
+    //$("#pet_starvation_time").html(deathTime + " " + "now time " + now);
 }
 
 
