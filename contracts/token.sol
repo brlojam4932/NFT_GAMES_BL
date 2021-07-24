@@ -18,19 +18,13 @@ contract Token is ERC721, Ownable {
   }
 
   uint256 nextId = 0;
-  uint256 startTime;
 
 
   mapping(uint256 => Pet) private _tokenDetails;
 
 
-  constructor(string memory name, string memory symbol, uint _startTime) ERC721(name, symbol) {
-    startTime = _startTime;
+  constructor(string memory name, string memory symbol) ERC721(name, symbol) {
     
-  }
-
-  function hasStarted() public view returns(bool) {
-    return (block.timestamp >= startTime);
   }
 
 
@@ -46,15 +40,15 @@ contract Token is ERC721, Ownable {
   }
 
 
-  function feed(uint256 tokeId) public {
-    Pet storage pet = _tokenDetails[nextId];
+  function feed(uint256 tokenId) public {
+    Pet storage pet = _tokenDetails[tokenId];
     require(pet.lastMeal + pet.endurance > block.timestamp);
     pet.lastMeal = block.timestamp;
   }
 
 
   function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override {
-      Pet storage pet = _tokenDetails[nextId];
+      Pet storage pet = _tokenDetails[tokenId];
       require(pet.lastMeal + pet.endurance > block.timestamp); // pet is still alive
     }
 

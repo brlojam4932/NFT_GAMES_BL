@@ -6,6 +6,8 @@ const CONTRACT_ADDRESS = "0xbBacf513Fa94acb2a4cfA535b561839b539Adfb6";
 async function init() {
     try {
         let user = Moralis.User.current();
+        //console.log(user);
+        //alert("User logged in")
         if(!user){
             $("#login_button").click( async () => {
                 user = await Moralis.Web3.authenticate();
@@ -36,12 +38,15 @@ function renderPet(id, data) {
     $("#pet_magic").html(data.magic);
     $("#pet_endurance").html(data.endurance);
     $("#feed_button").attr("data-pet-id", id);
+/*
+    other attempts
 
-    //let deathTime = new Date(Date.now(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000)); 
-
+    let deathTime = new Date(Date.now(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000)); 
     //let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16255100);
     //let deathTime = Math.floor(new Date().getTime()/1000.0);
-    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16255100);
+*/
+    let deathTime = new Date(Date.now(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000)); 
+    //let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16255100);
     let now = new Date();
     if(now > deathTime) {
         deathTime = "<b>DEAD</b>";
