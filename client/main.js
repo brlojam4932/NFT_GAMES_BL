@@ -1,7 +1,7 @@
 
 Moralis.initialize("IgjTev92MjQUSMuHXIhc7A5KiFOGrtJ2RBgNTrz0"); // Application id from moralis.io
 Moralis.serverURL = "https://8a5ybyqvaz6q.usemoralis.com:2053/server"; //Server url from moralis.io
-const CONTRACT_ADDRESS = "0x3f82C345B1D0BeB50e358eD67d92e66E8391B146";
+const CONTRACT_ADDRESS = "0xF15fc44D3CD0F4d1d573C2CfdAC6CFf3127cc3d1";
 
 async function init() {
     try {
@@ -38,15 +38,11 @@ function renderPet(id, data) {
     $("#pet_magic").html(data.magic);
     $("#pet_endurance").html(data.endurance);
     $("#feed_button").attr("data-pet-id", id);
-/*
-    other attempts
 
-    let deathTime = new Date(Date.now(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000)); 
-    //let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16255100);
-    //let deathTime = Math.floor(new Date().getTime()/1000.0);
-*/
-    let deathTime = new Date(Date.now(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000)); 
-    //let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000); // offset time: 16255100
+
+    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16255100); //16255100
+    //let deathTime = new Date(Date.now(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000)); 
+    //let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000); 
     let now = new Date();
     if(now > deathTime) {
         deathTime = "<b>DEAD</b>";
