@@ -24,7 +24,13 @@ contract Token is ERC721, Ownable {
   mapping(uint256 => Pet) private _tokenDetails;
 
 
-  constructor(string memory name, string memory symbol) ERC721(name, symbol) {
+  constructor(string memory name, string memory symbol, uint _startTime) ERC721(name, symbol) {
+    startTime = _startTime;
+    
+  }
+
+  function hasStarted() public view returns(bool) {
+    return (block.timestamp >= startTime);
   }
 
 
