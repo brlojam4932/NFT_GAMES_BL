@@ -11,6 +11,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
+
   </head>
   <body>
     <div class="jumbotron jumbotron-fluid">
@@ -22,17 +23,17 @@
         <button id="login_button">Sign in with MetaMask</button>
         <div id="game"> 
           <div class="row">
-            <div class="col-md-8">
-              <img src="robot.jpg" id="pet_img">
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-4 card">
+              <img class="card-img-top" src="robot.jpg" id="pet_img">
+              <div class="card-body">
+              <div>Account: <span id="account"></span></div>
               <div>Id: <span id="pet_id"></span></div>
               <div>Damage: <span id="pet_damage"></span></div>
               <div>Magic: <span id="pet_magic"></span></div>
               <div>Endurance: <span id="pet_endurance"></span></div>
               <div>Time to starvation: <span id="pet_starvation_time"></span></div>
               <button id="feed_button" class = "btn btn-primary btn-block">Feed</button>
-
+              </div>
             </div>
           </div>
         </div>

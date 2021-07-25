@@ -1,7 +1,7 @@
 
 Moralis.initialize("IgjTev92MjQUSMuHXIhc7A5KiFOGrtJ2RBgNTrz0"); // Application id from moralis.io
 Moralis.serverURL = "https://8a5ybyqvaz6q.usemoralis.com:2053/server"; //Server url from moralis.io
-const CONTRACT_ADDRESS = "0xF15fc44D3CD0F4d1d573C2CfdAC6CFf3127cc3d1";
+const CONTRACT_ADDRESS = "0x991f6B0127805d0aa6f66bd7c3aE8ac64bFa8767";
 
 async function init() {
     try {
@@ -26,6 +26,9 @@ async function renderGame() {
     window.web3 = await Moralis.Web3.enable();
     let abi = await getAbi();
     let contract = new web3.eth.Contract(abi, CONTRACT_ADDRESS);
+    let array = await contract.methods.getAllTokensForUser(ethereum.selectedAddress).call({from: ethereum.selectedAddress});
+    console.log(array);
+    
     let data = await contract.methods.getTokenDetails(petId).call({from: ethereum.selectedAddress});
     console.log(data);
     renderPet(0, data);
@@ -33,6 +36,7 @@ async function renderGame() {
 }
 
 function renderPet(id, data) {
+    $("#account").html(CONTRACT_ADDRESS);
     $("#pet_id").html(id);
     $("#pet_damage").html(data.damage);
     $("#pet_magic").html(data.magic);
@@ -40,7 +44,7 @@ function renderPet(id, data) {
     $("#feed_button").attr("data-pet-id", id);
 
 
-    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16255100); //16255100
+    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16256800); //16255100
     //let deathTime = new Date(Date.now(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000)); 
     //let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 1000); 
     let now = new Date();
@@ -66,7 +70,7 @@ async function feed(petId){
     let abi = await getAbi();
     let contract = new web3.eth.Contract(abi, CONTRACT_ADDRESS);
     contract.methods.feed(petId).send({from: ethereum.selectedAddress}).on("receipt", (() => {
-        console.log("done");
+        console.log("Feeding completed");
         renderGame();
     }))
 

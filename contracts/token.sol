@@ -46,6 +46,28 @@ contract Token is ERC721, Ownable {
     pet.lastMeal = block.timestamp;
   }
 
+  function getAllTokensForUser(address user) public view returns(uint256[] memory) {
+    uint256 tokenCount = balanceOf(user);
+    if(tokenCount == 0) {
+      return new uint256[](0);
+    }
+    else{
+      uint256[] memory result = new uint256[](tokenCount);
+      // how many tokens in total?
+      uint256 totalPets = nextId;
+      uint256 resultIndex = 0;
+      for(uint256 i = 0; i < totalPets; i++) {
+        //check
+        if(ownerOf(i) == user) {
+          result[resultIndex] = i;
+          resultIndex ++;
+        }
+
+      }
+    }
+
+  }
+
 
   function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override {
       Pet storage pet = _tokenDetails[tokenId];
