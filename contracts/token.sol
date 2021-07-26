@@ -61,8 +61,8 @@ contract Token is ERC721, Ownable {
           result[resultIndex] = i;
           resultIndex ++;
         }
-
       }
+      return result;
     }
 
   }
