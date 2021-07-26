@@ -23,9 +23,7 @@ contract Token is ERC721, Ownable {
   mapping(uint256 => Pet) private _tokenDetails;
 
 
-  constructor(string memory name, string memory symbol) ERC721(name, symbol) {
-    
-  }
+  constructor(string memory name, string memory symbol) ERC721(name, symbol) {}
 
 
   function getTokenDetails(uint256 tokenId) public view returns(Pet memory) {
@@ -56,7 +54,8 @@ contract Token is ERC721, Ownable {
       // how many tokens in total?
       uint256 totalPets = nextId;
       uint256 resultIndex = 0;
-      for(uint256 i = 0; i < totalPets; i++) {
+      uint256 i;
+      for(i = 0; i < totalPets; i++) {
         //check
         if(ownerOf(i) == user) {
           result[resultIndex] = i;

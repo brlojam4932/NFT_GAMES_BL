@@ -1,6 +1,6 @@
 Moralis.initialize("IgjTev92MjQUSMuHXIhc7A5KiFOGrtJ2RBgNTrz0"); // Application id from moralis.io
 Moralis.serverURL = "https://8a5ybyqvaz6q.usemoralis.com:2053/server"; //Server url from moralis.io
-const CONTRACT_ADDRESS = "0x7a042ee582011b555E6E6d4B7E99998E83816613";
+const CONTRACT_ADDRESS = "0x991f6B0127805d0aa6f66bd7c3aE8ac64bFa8767";
 
 async function init() {
     try {
@@ -27,6 +27,11 @@ async function renderGame() {
     let contract = new web3.eth.Contract(abi, CONTRACT_ADDRESS);
     let array = await contract.methods.getAllTokensForUser(ethereum.selectedAddress).call({from: ethereum.selectedAddress});
     console.log(array);
+    if(array.length == 0) return;
+    array.forEach(petId => {
+        let details = await contract.methods.getTokenDetails(petId).call({from: ethereum.selectedAddress});
+        renderPet(petId, details);
+    });
     
     let data = await contract.methods.getTokenDetails(petId).call({from: ethereum.selectedAddress});
     console.log(data);
