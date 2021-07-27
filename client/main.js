@@ -18,8 +18,10 @@ async function init() {
     }
 }
 
+
 async function renderGame() {
     $("#login_button").hide();
+    $("#pet_row").html("");
     //Get and render properties from smart contract
     //let petId = 0;
     window.web3 = await Moralis.Web3.enable();
@@ -28,15 +30,16 @@ async function renderGame() {
     let array = await contract.methods.getAllTokensForUser(ethereum.selectedAddress).call({from: ethereum.selectedAddress});
     //console.log(array);
     if(array.length == 0) return;
-    array.forEach(petId => {
+    array.forEach(async petId => {
         let details = await contract.methods.getTokenDetails(petId).call({from: ethereum.selectedAddress});
         renderPet(petId, details);
     });
     $("#game").show();
 }
 
+
 function renderPet(id, data) {
-    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16257800);
+    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16257900);
     let now = new Date();
     if(now > deathTime) {
         deathTime = "<b>DEAD</b>";
@@ -46,18 +49,21 @@ function renderPet(id, data) {
     <div class="col-md-4 card" id="pet_${id}">
         <img class="card-img-top pet_img" src="robot.jpg">
         <div class="card-body">
-            <div>Id: <span id="pet_id">${id}</span></div>
+            <div>Id: <span class="pet_id">${id}</span></div>
             <div>Damage: <span class="pet_damage">${data.damage}</span></div>
             <div>Magic: <span class="pet_magic">${data.magic}</span></div>
             <div>Endurance: <span class="pet_endurance">${data.endurance}</span></div>
             <div>Time to starvation: <span class="pet_starvation_time">${deathTime}</span></div>
-            <button data-pet-id="${id}" class="feed_button" class = "btn btn-primary btn-block">Feed</button>
+            <button data-pet-id="${id}" class="feed_button btn btn-primary btn-block">Feed</button>
         </div>           
     </div>`;
 
     let element = $.parseHTML(htmlString);
     $("#pet_row").append(element);
 
+    $(`#pet_ ${id} .feed_button`).click(() => { // click handler
+        feed(id);
+    });
 }
 
 
@@ -70,6 +76,7 @@ function getAbi(){
    
 }
 
+
 async function feed(petId){
     let abi = await getAbi();
     let contract = new web3.eth.Contract(abi, CONTRACT_ADDRESS);
@@ -77,14 +84,7 @@ async function feed(petId){
         console.log("Feeding completed");
         renderGame();
     }))
-
 }
-
-
-$("#feed_button").click(() => {
-    let petId = $("#feed_button").attr("data-pet-id");
-    feed(petId);
-});
   
 
 init();
