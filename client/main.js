@@ -39,7 +39,7 @@ async function renderGame() {
 
 
 function renderPet(id, data) {
-    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16257900);
+    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16258000);
     let now = new Date();
     if(now > deathTime) {
         deathTime = "<b>DEAD</b>";
@@ -61,7 +61,7 @@ function renderPet(id, data) {
     let element = $.parseHTML(htmlString);
     $("#pet_row").append(element);
 
-    $(`#pet_ ${id} .feed_button`).click(() => { // click handler
+    $(`#pet_${id} .feed_button`).click(() => { // click handler
         feed(id);
     });
 }
