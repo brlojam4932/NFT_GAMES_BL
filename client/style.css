@@ -3,12 +3,12 @@
 }
 
 .pet_group{
-  width: 300px;
+  width: 185px;
 }
 
 #game{
   display: none;
-  padding: 20px
+  padding: 35px 0;
 }
 body {
   background-color: rgb(21, 23, 24);
@@ -16,19 +16,18 @@ body {
 
 .promo{
   text-align: center;
-  padding-top: 160px;
-  height: 65vh;
+  padding-top: 120px;
+  height: 40vh;
   background: rgb(21, 23, 24);
-  background: linear-gradient(315eg,  rgb(81, 112, 130) 0%, rgb(21, 23, 24) 100%);
+  background: linear-gradient(315eg,  rgba(142, 155, 163, 1) 0%, rgba(21, 23, 24, 1) 100%);
 }
 
 .banner{
-  background-color: rgb(43 50 53);
-  width: 1000px;
-  padding-top: 40px;
+  background-color: rgba(43, 50, 53, 0.8);
+  padding-top: 5px;
   padding-bottom: 40px;
   border-radius: 10px;
-  width: 82;
+  width: 900px;
   margin-top: -70px;
   text-align: center;
   display: inline-block;
@@ -56,21 +55,16 @@ body {
   color: rgb(160, 148, 148);
 }
 
-img {
-  -webkit-filter: invert(1);
-  filter: invert(1);
-  }
-  
-.jumbotron {
-  background-color: #4a535d;
-}
-
 .display-4 {
   color: rgb(140, 131, 131);
 }
 
 .feed_button{
-  margin-top: 5;
+  margin-top: 5px;
 
+}
+
+.card-body{
+  font-size: small;
 }
 

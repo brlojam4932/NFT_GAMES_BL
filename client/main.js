@@ -1,6 +1,6 @@
 Moralis.initialize("IgjTev92MjQUSMuHXIhc7A5KiFOGrtJ2RBgNTrz0"); // Application id from moralis.io
 Moralis.serverURL = "https://8a5ybyqvaz6q.usemoralis.com:2053/server"; //Server url from moralis.io
-const CONTRACT_ADDRESS = "0x1483C12daff4D66D4B20EC32ECEC34bE2eb01c92";
+const CONTRACT_ADDRESS = "0x072EcDD2075EC4d37cF32F90fC61676Fc116B5b0";
 
 async function init() {
     try {
@@ -39,7 +39,7 @@ async function renderGame() {
 
 
 function renderPet(id, data) {
-    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16258000);
+    let deathTime = new Date(parseInt(data.lastMeal) + parseInt(data.endurance) * 16280000);
     let now = new Date();
     if(now > deathTime) {
         deathTime = "<b>DEAD</b>";
@@ -56,7 +56,8 @@ function renderPet(id, data) {
             <div>Time to starvation: <span class="pet_starvation_time">${deathTime}</span></div>
             <div class="progress">
                 <div class="progress-bar" style="width: 50%;">
-
+                
+                </div>
             </div>
             <button data-pet-id="${id}" class="feed_button btn btn-primary btn-block">Feed</button>
         </div>           
