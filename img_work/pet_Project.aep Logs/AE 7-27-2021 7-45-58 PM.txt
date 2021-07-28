@@ -1,0 +1,17 @@
+Adobe After Effects v18.2.1 Windows 64 render log for project “pet_Project.aep”
+
+Rendering started on 7/27/2021 at 7:45:58 PM
+
+  7/27/2021 7:45:58 PM: Starting composition “pet_robots_01”.
+
+  Output To: C:\Users\benX\Documents\ethereum_course_advanced\NFT_GAMES_BL\client\pet_robots_01.png    7/27/2021 7:45:58 PM: Finished composition “pet_robots_01”.
+
+
+  7/27/2021 7:45:58 PM: Starting composition “pet_robots_02”.
+
+  Output To: C:\Users\benX\Documents\ethereum_course_advanced\NFT_GAMES_BL\client\pet_robots_02.png    7/27/2021 7:45:58 PM: Finished composition “pet_robots_02”.
+
+
+  Total Time Elapsed: 0 Seconds
+Log closed on 7/27/2021 at 7:45:58 PM
+

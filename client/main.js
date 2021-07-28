@@ -46,14 +46,18 @@ function renderPet(id, data) {
     }
 
     let htmlString = `
-    <div class="col-md-4 card" id="pet_${id}">
-        <img class="card-img-top pet_img" src="robot.jpg">
+    <div class="col-md-3 card mx-1" id="pet_${id}">
+        <img class="card-img-top pet_img" src="pet_robots_02.png">
         <div class="card-body">
             <div>Id: <span class="pet_id">${id}</span></div>
             <div>Damage: <span class="pet_damage">${data.damage}</span></div>
             <div>Magic: <span class="pet_magic">${data.magic}</span></div>
             <div>Endurance: <span class="pet_endurance">${data.endurance}</span></div>
             <div>Time to starvation: <span class="pet_starvation_time">${deathTime}</span></div>
+            <div class="progress">
+                <div class="progress-bar" style="width: 50%;">
+
+            </div>
             <button data-pet-id="${id}" class="feed_button btn btn-primary btn-block">Feed</button>
         </div>           
     </div>`;

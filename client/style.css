@@ -1,11 +1,55 @@
 #pet_img{
   width: 175px;
 }
+
+.pet_group{
+  width: 300px;
+}
+
 #game{
   display: none;
+  padding: 20px
 }
 body {
   background-color: rgb(21, 23, 24);
+}
+
+.promo{
+  text-align: center;
+  padding-top: 160px;
+  height: 65vh;
+  background: rgb(21, 23, 24);
+  background: linear-gradient(315eg,  rgb(81, 112, 130) 0%, rgb(21, 23, 24) 100%);
+}
+
+.banner{
+  background-color: rgb(43 50 53);
+  width: 1000px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 10px;
+  width: 82;
+  margin-top: -70px;
+  text-align: center;
+  display: inline-block;
+  color: white;
+}
+
+.btn-homepage{
+  background-color: rgb(68, 168, 214) ;
+  border-radius: 30px;
+  border-color: rgb(6, 54, 78);
+  padding: 14px 3vw;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+
+.btn-homepage:hover{
+  color: black;
+  background-color: rgb(144, 192, 216);
+  border-color: rgb(48, 113, 146);
+
 }
 
 .col-md-4{
@@ -24,3 +68,9 @@ img {
 .display-4 {
   color: rgb(140, 131, 131);
 }
+
+.feed_button{
+  margin-top: 5;
+
+}
+
