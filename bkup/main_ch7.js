@@ -1,6 +1,6 @@
 Moralis.initialize("IgjTev92MjQUSMuHXIhc7A5KiFOGrtJ2RBgNTrz0"); // Application id from moralis.io
 Moralis.serverURL = "https://8a5ybyqvaz6q.usemoralis.com:2053/server"; //Server url from moralis.io
-const CONTRACT_ADDRESS = "0x75BA5B53Ca5F75dC9478287Fb3E20B05b22f69F0";
+const CONTRACT_ADDRESS = "0x072EcDD2075EC4d37cF32F90fC61676Fc116B5b0";
 
 async function init() {
     try {
@@ -47,25 +47,11 @@ function renderPet(id, data) {
     console.log("Time Remaining: " + percentageLeft);
     let percentageString = (percentageLeft * 100) + "%"; 
 
-    let deathTime = new Date((parseInt(data.lastMeal) + parseInt(data.endurance)) * 1000);
+    let deathTime = new Date((parseInt(data.lastMeal) + parseInt(data.endurance)) * 1000); //16260000
     
     if(now > deathTime) {
         deathTime = "<b>DEAD</b>";
     }
-
-    let interval = setInterval(() => {
-        let now = new Date();
-        let maxTime = data.endurance;
-        let currentUinx = Math.floor(now.getTime() / 1000);
-        let secondsLeft = (parseInt(data.lastMeal) + parseInt(data.endurance)) - currentUinx;
-        let percentageLeft = secondsLeft / maxTime;
-        console.log("Time Remaining: " + percentageLeft);
-        let percentageString = (percentageLeft * 100) + "%" 
-        $(`#pet_${id} .progress-bar`).css("width", percentageString);
-        if(percentageLeft < 0) {
-            clearInterval(interval);
-        }
-    }, 5000)
 
     let htmlString = `
     <div class="col-md-3 card mx-1" id="pet_${id}">
@@ -75,7 +61,7 @@ function renderPet(id, data) {
             <div>Damage: <span class="pet_damage">${data.damage}</span></div>
             <div>Magic: <span class="pet_magic">${data.magic}</span></div>
             <div>Endurance: <span class="pet_endurance">${data.endurance}</span></div>
-            class="pet_starvation_time">${deathTime}</span></div>
+            <div>Time to starvation: <span class="pet_starvation_time">${deathTime}</span></div>
             <div class="progress">
                 <div class="progress-bar" style="width: ${percentageString}">
 

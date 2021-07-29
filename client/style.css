@@ -14,12 +14,12 @@ body {
   background-color: rgb(21, 23, 24);
 }
 
+
 .promo{
   text-align: center;
   padding-top: 120px;
   height: 40vh;
   background: rgb(21, 23, 24);
-  background: linear-gradient(315eg,  rgba(142, 155, 163, 1) 0%, rgba(21, 23, 24, 1) 100%);
 }
 
 .banner{
