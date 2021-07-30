@@ -44,7 +44,7 @@ function renderPet(id, data) {
     let currentUinx = Math.floor(now.getTime() / 1000);
     let secondsLeft = (parseInt(data.lastMeal) + parseInt(data.endurance)) - currentUinx;
     let percentageLeft = secondsLeft / maxTime;
-    console.log("Time Remaining: " + percentageLeft);
+    //console.log("Time Remaining: " + percentageLeft);
     let percentageString = (percentageLeft * 100) + "%"; 
 
     let deathTime = new Date((parseInt(data.lastMeal) + parseInt(data.endurance)) * 1000);
