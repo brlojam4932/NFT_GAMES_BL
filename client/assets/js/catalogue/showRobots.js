@@ -18,7 +18,7 @@ async function init() {
     }
 }
 
-/*
+
 async function renderGame() {
     $("#login_button").hide();
     $("#pet_row").html("");
@@ -36,9 +36,7 @@ async function renderGame() {
     });
     $("#game").show();
 }
-*/
 
-/*
 
 function renderPet(id, data) {
     let now = new Date();
@@ -72,7 +70,7 @@ function renderPet(id, data) {
 
     let htmlString = `
     <div class="col-md-3 card mx-1" id="pet_${id}">
-        <img class="card-img-top pet_img" src="pet_robots_02.png">
+        <img class="card-img-top pet_img" src="assets/images/pet_robots_02.png">
         <div class="card-body">
             <div>Id: <span class="pet_id">${id}</span></div>
             <div>Damage: <span class="pet_damage">${data.damage}</span></div>
@@ -94,10 +92,11 @@ function renderPet(id, data) {
     $(`#pet_${id} .feed_button`).click(() => { // click handler
         feed(id);
     });
-   
+    
+
 
 }
- */
+
 
 function getAbi(){
     return new Promise((res) => {
@@ -108,7 +107,7 @@ function getAbi(){
    
 }
 
-/*
+
 async function feed(petId){
     let abi = await getAbi();
     let contract = new web3.eth.Contract(abi, CONTRACT_ADDRESS);
@@ -117,7 +116,6 @@ async function feed(petId){
         renderGame();
     }))
 }
-*/
   
 
 init();
