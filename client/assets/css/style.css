@@ -72,3 +72,16 @@ body {
   font-size: small;
 }
 
+.my-row {
+  border: 3px solid red;
+  height: 300px;
+}
+
+.my-container {
+  border: 1px solid green;
+}
+
+.my-col {
+  border: 3px solid blue;
+}
+
