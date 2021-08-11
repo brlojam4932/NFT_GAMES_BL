@@ -53,11 +53,22 @@ $("#headColor").change(() => {
   headColor(colors[colorVal], colorVal)
 })
 
-function showCattributes() {
-  $("#robtributes").removeClass("hidden")
-  $("#robColors").addClass("hidden")
+
+//Showing Colors and Cattribute Boxes
+
+
+function showColors() {
+  $("#catColors").removeClass("hidden")
+  $("#cattributes").addClass("hidden")
 }
 
+function showCattributes() {
+  $("#cattributes").removeClass("hidden")
+  $("#catColors").addClass("hidden")
+}
+
+
+//-----------------------------------------------
 //// Randomize and Buttons
 // rand colors old method
 $("#button1").on("click", async () => {

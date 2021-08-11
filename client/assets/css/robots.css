@@ -9,6 +9,11 @@ html {
   overflow-y: scroll;
 }
 
+#body {
+  background: #607d8b;
+
+}
+
 .robot__head {
   position: relative;
   width: 135px;
