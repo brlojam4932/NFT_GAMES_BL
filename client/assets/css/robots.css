@@ -59,11 +59,50 @@ html {
   background: #e57373;
 }
 
-.cat__eye {
+.robot__eye {
   position: absolute;
   top: 35px;
   left: -16px;
   display: flex;
+}
+
+.robot__eye--left, .robot__eye--right {
+  width: 30px;
+  height: 30px;
+  background: rgb(190, 40, 40);
+  border-radius: 50%;
+  margin: 38px;
+  z-index: 100;
+}
+
+.robot__eye span {
+  position: absolute;
+  top: 41px;
+  width: 42px;
+  height: 42px;
+  background: #373737;
+  border-radius: 50%;
+  z-index: 200;
+}
+
+.robot__eye span::before {
+  content: "";
+  top: 20px;
+  left: 8px;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.robot__eye span.pupil-left {
+  left: 42px;
+
+}
+
+.robot__eye span.pupil-right {
+  left: 166px;
 }
 
 

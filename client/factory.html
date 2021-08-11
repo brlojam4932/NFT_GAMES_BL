@@ -66,9 +66,28 @@
             </div>
           </div>
 
-          <div class="robot__head">
+          <div id="head" class="robot__head">
+            <div class="robot__eye--left">
+              <span class="pupil-left"></span>
+            </div>
+            <div class="robot__eye--right">
+              <span class="pupil-right"></span>
+            </div>
 
-          </div><!-- robot head dive end -->
+          </div><!-- robot head div end -->
+          <br>
+          <div class="dnaBox" id="catDNA">
+            <b>
+              DNA:
+              <!--Colors-->
+              <span id="dnabody"></span>
+              <span id="dnaeyes"></span>
+              <span id="dnaears"></span>
+              <!--Robottributes-->
+              <span id="dnashape"></span>
+            </b>
+
+          </div>
 
           <div class="card-body">
             <div>Id: <span class="pet_id">id</span></div>
@@ -86,6 +105,7 @@
       </div>
     </div>
 
+
   </div>
   <!--container div end-->
   <br>
@@ -97,7 +117,7 @@
           <button class="btn btn-primary tsp-1" onclick="showColors()"><b>Colors</b></button>
           <button class="btn btn-primary ml-2 tsp-1" onclick="showRobottributes()"><b>Robottributes</b></button>
         </div>
-<!-- Robot colors -->
+        <!-- Robot colors -->
         <div id="robotColors">
           <div class="form-group">
             <label for="formControlRange"> <b>Head and Body</b>
@@ -113,18 +133,20 @@
           </div>
         </div> <!-- Robot colors end -->
 
-<!--Robot Attributes-->
+        <!--Robot Attributes-->
         <div id="robotAttr" class="hidden">
           <div class="form-group">
-            <label for="formControlRange"> <b>Eyes shape</b> <span class="badge badge-dark ml-2" id="eyeName"> </span> </label>
+            <label for="formControlRange"> <b>Eyes shape</b> <span class="badge badge-dark ml-2" id="eyeName"> </span>
+            </label>
             <input type="range" min="1" max="7" class="form-control-range" id="shape">
           </div>
         </div>
       </div> <!-- column md-4 end end -->
     </div> <!-- row 1 end -->
-    
-  </div> <!--container div end-->
-  
+
+  </div>
+  <!--container div end-->
+
 
 
 
