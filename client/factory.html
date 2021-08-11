@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet"  href="assets/css/robots.css">
 
   </head>
   <body>
@@ -46,10 +47,23 @@
      
     <div class="container">
         <button id="login_button">Sign in with MetaMask</button>
-        <div id="game"> 
-          <div class="row" id="pet_row">
-            <div class="col-md-3 card mx-1" id="pet">
-              <img class="card-img-top pet_img" src="assets/images/pet_robots_02.png">
+        <div class="row">
+          <div class="col-md-3 card mx-1">
+            <div class="robot" id="newRobot">
+
+              <div class="robot__ear">
+                <div id="leftEar" class="robot__ear--left">
+                    <div class="robot__ear--left-inside"></div>
+                </div>
+                <div id="rightEar" class="robot__ear--right">
+                    <div class="robot__ear--right-inside"></div>
+                </div>
+            </div>
+
+              <div class="robot__head">
+  
+              </div>
+
               <div class="card-body">
                   <div>Id: <span class="pet_id">id</span></div>
                   <div>Damage: <span class="pet_damage">damage</span></div>
@@ -62,11 +76,14 @@
                   </div>
                   <button data-pet-id="id" class="feed_button btn btn-primary btn-block">Feed</button>
               </div>           
+            </div>
           </div>
-           
-          </div>
-        </div>
-    </div>
+      </div>
+
+            </div>
+            
+            
+
     <script type="text/javascript" src="./main.js"></script>
   
     <!-- Code injected by live-server -->

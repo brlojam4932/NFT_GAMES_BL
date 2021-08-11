@@ -1,0 +1,55 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+.robot__head {
+  position: relative;
+  width: 135px;
+  height: 116px;
+  border: 6px solid transparent;
+  /* -webkit-border-radius: 50% 50% 45% 45%; */
+  border-radius: 14% 3% 4% 3%;
+  background: #23d4a3;
+  z-index: 20;
+}
+
+.robot__ear{
+  position: relative;
+}
+
+.robot__ear--left, .robot__ear--right {
+  position: absolute;
+  top: -8px;
+  width: 58px;
+  height: 60px;
+  border: 5px solid transparent;
+  border-radius: 90% 0 90% 0;
+  background: #d445b0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.robot__ear--left {
+  transform: scale(-1,1); rotate: (170deg);
+  left: -14px;
+}
+
+.robot__ear--right {
+  transform: rotate(170deg);
+  left: 94px;
+}
+
+.robot__ear--left-inside, .robot__ear--right-inside {
+  width: 45px;
+  height: 55px;
+  border-radius: 90% 0 90% 0;
+  background: #e57373;
+}

@@ -2,14 +2,18 @@
   width: 175px;
 }
 
+
 .pet_group{
   width: 185px;
 }
+
 
 #game{
   display: none;
   padding: 35px 0;
 }
+
+
 body {
   background-color: rgb(21, 23, 24);
 }
