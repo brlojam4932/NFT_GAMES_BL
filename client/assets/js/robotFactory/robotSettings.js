@@ -18,7 +18,7 @@ function defaultBot() {
   renderBot(defaultDNA)
 }
 
-/*
+
 function randomDNA() { // new function - not sure how it works
   var dnaStr = String(Math.floor(Math.random()*1E16))
   //Colors
@@ -32,7 +32,7 @@ function randomDNA() { // new function - not sure how it works
   }
   return dna
 }
-*/
+
 
 
 //Random cat DNA
@@ -56,8 +56,8 @@ function getDna() {
 }
 
 function renderBot(dna) { // colors, code
-  headColor(colors[dna.headcolor], dna.headColor)
-  $("#headColor").val(dna.headcolor)
+  headColor(colors[dna.headColor], dna.headColor)
+  $("#headColor").val(dna.headColor)
   console.log("headColorDefault " + dna.headColor)
 
   eyesColor(colors[dna.eyesColor], dna.eyesColor)
@@ -109,46 +109,31 @@ $("#shape").change(() => {
 //-----------------------------------------------
 //// Randomize and Buttons
 // rand colors old method
+/*
 $("#button1").on("click", async () => {
   renderBot(defaultDNA)
 });
 
-function randomDNA() {
-  
-  var colorVal = Math.floor(Math.random() * 89) + 10;
-  bodyColor(colors[colorVal], colorVal)
-
-  var colorVal = Math.floor(Math.random() * 89) + 10;
-  eyesColor(color[colorVal], colorVal)
-
-  var colorVal = Math.floor(Math.random() * 89) + 10;
-  earsColor(colors[colorVal], colorVal)
-
-  // rand shapes
-
-  var shape = Math.floor(Math.random() * 8) + 1;
-  eyeVariation(shape)
-
-}
 
 
 $("#button2").on("click", async () => {
   var colorVal = Math.floor(Math.random() * 89) + 10;
-  bodyColor(colors[colorVal], colorVal)
+  headColor(colors[colorVal], colorVal)
 
   var colorVal = Math.floor(Math.random() * 89) + 10;
-  eyesColor(color[colorVal], colorVal)
+  eyesColor(colors[colorVal], colorVal)
 
   var colorVal = Math.floor(Math.random() * 89) + 10;
-  earsColor(colors[colorVal], colorVal)
+  earsAndPaw(colors[colorVal], colorVal)
 
-  
 
   // rand shapes
 
   var shape = Math.floor(Math.random() * 8) + 1;
   eyeVariation(shape)
 })
+
+*/
 
 //Showing Colors and Cattribute Boxes ---------------------
 

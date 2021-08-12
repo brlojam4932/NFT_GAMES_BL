@@ -26,7 +26,7 @@ function eyesColor(color, code) {
 }
 
 function earsAndPaw(color, code) {
-  $("robot__ear--left, .robot__ear--right").css('background', "#" + color)
+  $(".robot__ear--left, .robot__ear--right").css('background', "#" + color)
   $("#earcode").html('code: ' + code)
   $("#dnaears").html(code)
 }
@@ -99,7 +99,7 @@ function eyesType2() {
 
 //top and bottom
 function eyesType3() {
-  $(".robot__eye").find('span').css({ "border-top": "15px solid", "border-left": "15px solid"})
+  $(".robot__eye").find('span').css({ 'border-top': '15px solid', 'border-bottom': '15px solid' })
 }
 
 //Right and left
@@ -107,7 +107,7 @@ function eyesType4() {
   $(".robot_eye").find('span').css({ 'border-right': '15px solid', 'border-left': '15px solid'})
 }
 
-// Right and top
+//Right left top
 function eyesType5() {
   $(".robot_eye").find("span").css({ 'border-right': '15px solid', 'border-left': '15px solid', 'border-top': '15px solid' })
 }
