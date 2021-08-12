@@ -20,7 +20,7 @@ function headColor(color, code) {
 }
 
 function eyesColor(color, code) {
-  $("robot__eye--left, .robot__eye--right").css('background', "#" + color)
+  $('.robot__eye').find('span').css('background', '#' + color)
   $("#eyecode").html("code: " + code)
   $("#dnaeyes").html(code)
 }

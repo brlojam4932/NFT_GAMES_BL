@@ -73,7 +73,8 @@ function renderBot(dna) { // colors, code
   console.log("shapeEyeVarDefault " + dna.eyesShape)
 }
 
-//------------------- Changing cat colors -----------------
+//-------Changing bot colors with listerners-----------------
+
 $("#headColor").change(() => {
   var colorVal = $("#headColor").val()
   headColor(colors[colorVal], colorVal)
@@ -111,6 +112,24 @@ $("#shape").change(() => {
 $("#button1").on("click", async () => {
   renderBot(defaultDNA)
 });
+
+function randomDNA() {
+  
+  var colorVal = Math.floor(Math.random() * 89) + 10;
+  bodyColor(colors[colorVal], colorVal)
+
+  var colorVal = Math.floor(Math.random() * 89) + 10;
+  eyesColor(color[colorVal], colorVal)
+
+  var colorVal = Math.floor(Math.random() * 89) + 10;
+  earsColor(colors[colorVal], colorVal)
+
+  // rand shapes
+
+  var shape = Math.floor(Math.random() * 8) + 1;
+  eyeVariation(shape)
+
+}
 
 
 $("#button2").on("click", async () => {
