@@ -3,68 +3,94 @@ var colors = Object.values(allColors())
 var defaultDNA = {
   "headColor" : 10,
   "earsColor" : 10,
+  "eyesColor" : 96,
   // Robot Attributes
   "eyesShape" : 1
 }
 
 // when page loads
 $(document).ready(function() {
-  renderCat(defaultDNA)
+  renderBot(defaultDNA)
 });
 
-function defaultCat() {
-  renderCat(defaultDNA)
+function defaultBot() {
+  renderBot(defaultDNA)
 }
+
 
 function randomDNA() { // new function - not sure how it works
   var dnaStr = String(Math.floor(Math.random()*1E16))
   //Colors
   var dna = {
     "headColor" : dnaStr.substring(0, 2),
-    "earsColor" : dnaStr.substring(6, 8),
+    "eyesColor" : dnaStr.substring(2, 4),
+    "earsColor" : dnaStr.substring(4, 6),
+    
     // Robot Arrt
     "eyesShape" : dnaStr.substring(8,9) % 8 + 1
   }
   return dna
 }
 
+
 //Random cat DNA
-function randomCat() {
+function randomBot() {
   var dna = randomDNA()
     //Rendering Cat
-    renderCat(dna)
+    renderBot(dna)
 }
 
 function getDna() {
   var dna = ""
   dna += $("#dnabody").html()
+  dna += $("#dnaeyes").html()
   dna += $("#dnaears").html()
+  
   dna += $("#dnashape").html()
 
+  console.log(parseInt(dna))
   return parseInt(dna)
+  
 }
 
-function renderCat(dna) { // colors, code
+function renderBot(dna) { // colors, code
   headColor(colors[dna.headcolor], dna.headColor)
   $("#headColor").val(dna.headcolor)
+  console.log("headColorDefault " + dna.headColor)
+
+  eyesColor(colors[dna.eyesColor], dna.eyesColor)
+  $("#eyesColor").val(dna.eyesColor)
+  console.log("eyesColorDefault " + dna.eyesColor)
 
   earsAndPaw(colors[dna.earsColor], dna.earsColor)
   $("#earsColor").val(dna.earsColor)
+  console.log("earsColorDefault " + dna.earsColor)
 
   eyeVariation(dna.eyesShape)
   $("#shape").val(dna.eyesShape)
+  console.log("shapeEyeVarDefault " + dna.eyesShape)
 }
 
 //------------------- Changing cat colors -----------------
 $("#headColor").change(() => {
   var colorVal = $("#headColor").val()
   headColor(colors[colorVal], colorVal)
+  console.log("headColor " + colorVal);
+})
+
+$("#eyesColor").change(() => {
+  var colorVal = $("#eyesColor").val()
+  eyesColor(colors[colorVal], colorVal)
+  console.log("eyesColor " + colorVal)
 })
 
 $("#earsColor").change(() => {
   var colorVal = $("#earsColor").val()
   earsAndPaw(colors[colorVal], colorVal)
+  console.log("earsPaw " + colorVal)
 })
+
+
 
 //------------------- Changing attributes -----------------
 
@@ -73,6 +99,7 @@ $("#earsColor").change(() => {
 $("#shape").change(() => {
   var shape = parseInt($("#shape").val())
   eyeVariation(shape)
+  console.log('eyeVariation ' + shape)
 })
 
 
@@ -80,7 +107,7 @@ $("#shape").change(() => {
 //// Randomize and Buttons
 // rand colors old method
 $("#button1").on("click", async () => {
-  renderCat(defaultDNA)
+  renderBot(defaultDNA)
 });
 
 
@@ -89,7 +116,12 @@ $("#button2").on("click", async () => {
   bodyColor(colors[colorVal], colorVal)
 
   var colorVal = Math.floor(Math.random() * 89) + 10;
+  eyesColor(color[colorVal], colorVal)
+
+  var colorVal = Math.floor(Math.random() * 89) + 10;
   earsColor(colors[colorVal], colorVal)
+
+  
 
   // rand shapes
 

@@ -14,21 +14,28 @@ function genColors() {
 }
 
 function headColor(color, code) {
-  $(".cat__head").css('background', '#' + color)
+  $(".robot__head").css('background', '#' + color)
   $("#headcode").html('code: ' + code)
   $("#dnabody").html(code)
 }
 
+function eyesColor(color, code) {
+  $(".robot__eye").find("span").css('bacground', "#" + color)
+  $("#eyecode").html("code: " + code)
+  $("#dnaeyes").html(code)
+}
+
 function earsAndPaw(color, code) {
-  $(".cat__ear--left, .cat__ear--right").css('background', "#" + color)
-  $("#earscode").html('code: ' + code)
+  $(".robot__ear--left, .robot_ear--right").css('background', "#" + color)
+  $("#earcode").html('code: ' + code)
   $("#dnaears").html(code)
 }
 
 // Variation functions for range-bars -------------------
 
-// 6 eye types
+// 8 eye types
 function eyeVariation(num) {
+
   $("#dnashape").html(num)
   switch (num) {
     case 1:
@@ -70,7 +77,6 @@ function eyeVariation(num) {
       $('#eyeName').html('Circle')
       return eyesType7()            
       break
-
   }
 }
 
@@ -108,9 +114,9 @@ function eyesType5() {
 
 //Right left botton
 function eyesType6() {
-  $('.cat__eye').find('span').css({ 'border-right': '15px solid', 'border-left': '15px solid', 'border-bottom': '15px solid' })
+  $('.robot__eye').find('span').css({ 'border-right': '15px solid', 'border-left': '15px solid', 'border-bottom': '15px solid' })
 }
 //Full shape
 function eyesType7() {
-  $('.cat__eye').find('span').css('border', '15px solid')
+  $('.robot__eye').find('span').css('border', '15px solid')
 }
