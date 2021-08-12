@@ -36,7 +36,7 @@ html {
   border-radius: 0 0 50% 50%;
 }
 
-.bot__head-dots_first {
+.robot__head-dots_first {
   position: absolute;
   content: '';
   top: 1px;
@@ -47,7 +47,7 @@ html {
   border-radius: 50% 0 50% 50%;
 }
 
-.bot__head-dots_second {
+.robot__head-dots_second {
     position: absolute;
     content: '';
     top: 1px;
@@ -95,25 +95,25 @@ html {
 
 .robot__eye {
   position: absolute;
-  top: 35px;
-  left: -16px;
+  top: -20px;
+  left: -25px;
   display: flex;
 }
 
 .robot__eye--left, .robot__eye--right {
   width: 30px;
   height: 30px;
-  background: rgb(190, 40, 40);
+  background: #a0e109;
   border-radius: 50%;
-  margin: 38px;
+  margin: 28px;
   z-index: 100;
 }
 
 .robot__eye span {
   position: absolute;
-  top: 41px;
-  width: 42px;
-  height: 42px;
+  top: 30px;
+  width: 25px;
+  height: 25px;
   background: #373737;
   border-radius: 50%;
   z-index: 200;
@@ -131,12 +131,12 @@ html {
 }
 
 .robot__eye span.pupil-left {
-  left: 42px;
+  left: 31px;
 
 }
 
 .robot__eye span.pupil-right {
-  left: 166px;
+  left: 117px;
 }
 
 

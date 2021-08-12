@@ -20,13 +20,13 @@ function headColor(color, code) {
 }
 
 function eyesColor(color, code) {
-  $(".robot__eye").find("span").css('bacground', "#" + color)
+  $("robot__eye--left, .robot__eye--right").css('background', "#" + color)
   $("#eyecode").html("code: " + code)
   $("#dnaeyes").html(code)
 }
 
 function earsAndPaw(color, code) {
-  $(".robot__ear--left, .robot_ear--right").css('background', "#" + color)
+  $("robot__ear--left, .robot__ear--right").css('background', "#" + color)
   $("#earcode").html('code: ' + code)
   $("#dnaears").html(code)
 }

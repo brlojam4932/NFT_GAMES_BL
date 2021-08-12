@@ -2,8 +2,9 @@ var colors = Object.values(allColors())
 
 var defaultDNA = {
   "headColor" : 10,
-  "earsColor" : 10,
   "eyesColor" : 96,
+  "earsColor" : 10,
+  
   // Robot Attributes
   "eyesShape" : 1
 }
@@ -17,7 +18,7 @@ function defaultBot() {
   renderBot(defaultDNA)
 }
 
-
+/*
 function randomDNA() { // new function - not sure how it works
   var dnaStr = String(Math.floor(Math.random()*1E16))
   //Colors
@@ -31,6 +32,7 @@ function randomDNA() { // new function - not sure how it works
   }
   return dna
 }
+*/
 
 
 //Random cat DNA
