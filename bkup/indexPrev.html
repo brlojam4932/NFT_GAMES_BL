@@ -1,45 +1,186 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!--BEFORE VIDEO #6-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Title</title>
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  </head>
-  <body>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Welcome</h1>
+  <title>Factory</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/robots.css">
+
+</head>
+
+<body>
+  <nav class="menu navbar navbar-expand-md navbar-light">
+    <a class="navbar-brand" href="index.html"><b style="color:rgb(55, 174, 238)">My NFT Robots</b></a>
+    <div class="navbar-collapse collapse justify-content-end">
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a style="color:rgb(55, 174, 238)" href="index.html">Home</a>
+          </li>
+          <li class="navbar-item">
+            <a style="color:rgb(55, 174, 238)" href="factory.html">Factory</a>
+          </li>
+          <li class="navbar-item">
+            <a style="color:rgb(55, 174, 238)" href="catalogue.html">Catalogue</a>
+          </li>
+        </ul>
       </div>
     </div>
+  </nav>
+  <div class="promo">
     <div class="container">
-        <button id="login_button">Sign in with MetaMask</button>
-        <div id="game"> 
-          <div class="row">
-            <div class="col-md-4 card">
-              <img class="card-img-top" src="robot.jpg" id="pet_img">
-              <div class="card-body">
-              <div>Account: <span id="account"></span></div>
-              <div>Id: <span id="pet_id"></span></div>
-              <div>Damage: <span id="pet_damage"></span></div>
-              <div>Magic: <span id="pet_magic"></span></div>
-              <div>Endurance: <span id="pet_endurance"></span></div>
-              <div>Time to starvation: <span id="pet_starvation_time"></span></div>
-              <button id="feed_button" class = "btn btn-primary btn-block">Feed</button>
-              </div>
+      <div class="banner">
+        <img src="assets/images/pet_robots.png" class="pet_group">
+        <h3>Collect and breed bubbly friends!</h3>
+        <button class="btn btn-primary btn-homepage">Factory</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-container">
+    <button id="login_button">Sign in with MetaMask</button>
+    <div class="row my-row">
+      <div class="col-md-3 card mx-1 my-col">
+        <div class="robot" id="newRobot">
+
+          <div class="robot__ear">
+            <div id="leftEar" class="robot__ear--left">
+              <div class="robot__ear--left-inside"></div>
+            </div>
+            <div id="rightEar" class="robot__ear--right">
+              <div class="robot__ear--right-inside"></div>
             </div>
           </div>
+
+          <div id="head" class="robot__head">
+            <div id="midDot" class="robot__head-dots">
+              <div id="leftDot" class="robot__head-dots_first"></div>
+              <div id="rightDot" class="robot__head-dots_second"></div>
+            </div>
+            <div class="robot__eye">
+              <div class="robot__eye--left">
+                <span class="pupil-left"></span>
+              </div>
+              <div class="robot__eye--right">
+                <span class="pupil-right"></span>
+              </div>
+            </div> <!-- robot eye div end -->
+
+          </div><!-- robot head div end -->
+          <br>
+          <div class="dnaBox" id="catDNA">
+            <b>
+              DNA:
+              <!--Colors-->
+              <span id="dnabody"></span>
+              <span id="dnaeyes"></span>
+              <span id="dnaears"></span>
+              <!--Robottributes-->
+              <span id="dnashape"></span>
+            </b>
+
+          </div>
+          <!--
+            <div class="card-body">
+            <div>Id: <span class="pet_id">id</span></div>
+            <div>Damage: <span class="pet_damage">damage</span></div>
+            <div>Magic: <span class="pet_magic">magic</span></div>
+            <div>Endurance: <span class="pet_endurance"></span></div>
+            <div class="progress">
+              <div class="progress-bar" style="width: percentageString">
+
+              </div>
+            </div>
+            <button data-pet-id="id" class="feed_button btn btn-primary btn-block">Feed</button>
+          </div>
+          -->
+          
         </div>
+      </div>
     </div>
 
-    <script type="text/javascript" src="./main.js"></script>
-  </body>
+  </div>
+  <!--container div end-->
+  <br>
+
+  <div class="container my-container">
+    <div class="row my-row">
+      <div class="col md-4 card mx-1 my-col">
+        <div class="btn-group mb-3">
+          <button class="btn btn-primary tsp-1" onclick="showColors()"><b>Colors</b></button>
+          <button class="btn btn-primary ml-2 tsp-1" onclick="showRobottributes()"><b>Robottributes</b></button>
+        </div>
+        <!-- Robot colors -->
+        <div id="robotColors">
+          <div class="form-group">
+            <label for="formControlRange"> <b>Head and Body</b> <span class="badge badge-dark ml-2" id="headcode"></span></label>
+            <input type="range" min="10" max="98" class="form-control-range" id="headColor">
+
+            <div class="form-group">
+              <label for="fromControlRange"> <b>Eyes Color</b> <span class="badge badge-dark ml-2" id="eyecode"></span> </label>
+              <input type="range" min="10" max="98" class="form-control-range" id="eyesColor">
+            </div>
+
+            <div class="form-group">
+              <label for="formControlRange"> <b>Ears | Paw</b> <span class="badge badge-dark ml-2" id="earcode"></span></label>
+              <input type="range" min="10" max="98" class="form-control-range" id="earsColor">
+            </div>
+          </div>
+
+        </div> <!-- Robot colors end -->
+
+        <!--Robot Attributes-->
+        <div id="robotAttr" class="hidden">
+          <div class="form-group">
+            <label for="formControlRange"> <b>Eyes shape</b> <span class="badge badge-dark ml-2" id="eyeName"> </span>
+            </label>
+            <input type="range" min="1" max="7" class="form-control-range" id="shape">
+          </div>
+
+            <!--Randomize and create buttons-->
+          <div class="container"> 
+            <div class="btn-group">
+                <button class="btn btn-primary  tsp-1 m-1 light-b-shadow" onclick="randomBot()"><b>Get random kitty</b></button>
+                <button class="btn btn-primary  ml-2 tsp-1 m-1 light-b-shadow" onclick="defaultBot()"><b>Default kitty</b></button>
+            </div>
+            <div class=" group-btn float-right">
+                <button class="btn btn-success mr-5  tsp-1 m-1 light-b-shadow" onclick="getKitties()"><b>Get Kitty</b></button>
+                <button class="btn btn-success mr-5  tsp-1 m-1 light-b-shadow" onclick="createBot()"><b>Create Kitty</b></button>
+            </div>
+            <br>
+
+            <div id="message" align="center"></div>
+              
+            </div>
+        </div>  <!--Robot Attributes end-->
+      </div> <!-- column md-4 end end -->
+    </div> <!-- row 1 end -->
+
+  </div>
+  <!--container div end-->
+
+
+  <script type="text/javascript" src="./main.js"></script>
+  <script type="text/javascript" src="assets/js/colors.js"></script>
+  <script type="text/javascript" src="assets/js/robotFactory/robotFactory.js"></script>
+  <script type="text/javascript" src="assets/js/robotFactory/robotSettings.js"></script>
+
+
+  <!-- Code injected by live-server -->
+</body>
+
 </html>
